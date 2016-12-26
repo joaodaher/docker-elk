@@ -13,6 +13,17 @@ services:
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
     networks:
       - elk
+  logstash:
+    build: logstash/
+    command: -f /etc/logstash/conf.d/
+    volumes:
+      - ./logstash/config:/etc/logstash/conf.d
+    ports:
+      - "5000:5000"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
   kibana:
     build: kibana/
     volumes:
@@ -27,3 +38,4 @@ services:
 networks:
   elk:
     driver: bridge
+
