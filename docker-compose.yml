@@ -4,14 +4,15 @@ services:
   elasticsearch:
     build: elasticsearch/
     volumes:
-      - ./elasticsearch/config/:/usr/share/elasticsearch/config/
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ~/Docker/data/elk:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
     networks:
-      - docker_elk
+      - elk
   kibana:
     build: kibana/
     volumes:
@@ -19,10 +20,10 @@ services:
     ports:
       - "5601:5601"
     networks:
-      - docker_elk
+      - elk
     depends_on:
       - elasticsearch
 
 networks:
-  docker_elk:
+  elk:
     driver: bridge
