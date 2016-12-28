@@ -1,0 +1,2 @@
+# docker-elk
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/499184a38b7142d1bb51161a7fceb5f6)](https://www.codacy.com/app/joao-daher-neto/docker-elk?utm_source=github.com&utm_medium=referral&utm_content=joaodaher/docker-elk&utm_campaign=badger)
