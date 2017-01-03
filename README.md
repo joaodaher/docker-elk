@@ -78,7 +78,7 @@ elasticsearch:
   environment:
     ES_JAVA_OPTS: "-Xms1g -Xmx1g"
   networks:
-    - docker_elk
+    - elk
   volumes:
     - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 ```
@@ -95,7 +95,7 @@ elasticsearch:
   environment:
     ES_JAVA_OPTS: "-Xms1g -Xmx1g"
   networks:
-    - docker_elk
+    - elk
 ```
 
 # Storage
@@ -116,7 +116,7 @@ elasticsearch:
   environment:
     ES_JAVA_OPTS: "-Xms1g -Xmx1g"
   networks:
-    - docker_elk
+    - elk
   volumes:
     - /path/to/storage:/usr/share/elasticsearch/data
 ```
